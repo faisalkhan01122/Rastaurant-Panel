@@ -1,15 +1,27 @@
 import React, { useState } from "react";
-
 import BottomButton from "../../components/RstCards/BottomButton";
 
 const DocumentsEdit = () => {
   const [selectedImage, setSelectedImage] = useState(null);
+  const [formError, setFormError] = useState("");
 
   const handleImageChange = (event) => {
     const file = event.target.files[0];
     if (file) {
       setSelectedImage(URL.createObjectURL(file));
+      setFormError(""); // Clear any previous error
     }
+  };
+
+  const handleSubmit = () => {
+    if (!selectedImage) {
+      setFormError("Please select an image.");
+      return;
+    }
+
+    // If validation passes, log the data to the console
+    console.log("Form submitted with the following data:");
+    console.log("Selected Image:", selectedImage);
   };
 
   return (
@@ -27,17 +39,18 @@ const DocumentsEdit = () => {
           className="mb-2 bg-[#F5F5F5] w-full px-2 py-1 rounded-md border"
           onChange={handleImageChange}
         />
+        {formError && <p className="text-red-500 text-sm">{formError}</p>}
         {selectedImage && (
           <div className="mt-1">
             <img
               src={selectedImage}
               alt="Selected Preview"
-              className="w-16  h-20 rounded-md border"
+              className="w-16 h-20 rounded-md border"
             />
           </div>
         )}
       </fieldset>
-      <BottomButton />
+      <BottomButton handleSubmit={handleSubmit} />
     </div>
   );
 };

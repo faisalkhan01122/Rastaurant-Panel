@@ -1,61 +1,15 @@
-// import { Outlet } from "react-router-dom";
-// import { useState } from "react";
-// import Sidebar from "../components/Header/SideBar";
-// import { FaBars } from "react-icons/fa";
-// import Header from "../components/Header";
-// import BreadCrumb from "../components/Header/BreadCrumb";
-
-// const RootLayout = () => {
-//   const [sidebarOpen, setSidebarOpen] = useState(true);
-
-//   const breadcrumbs = [
-//     { href: "/dashboard", label: "Dashboard" },
-//     { href: "/restaurants-payouts", label: "Restaurants Payouts" },
-//   ];
-
-//   const toggleSidebar = () => {
-//     setSidebarOpen(!sidebarOpen);
-//   };
-
-//   return (
-//     <>
-//       <div className="w-full relative flex">
-//         <div className={` ${sidebarOpen ? "w-60" : "w-16"}`}>
-//           <Sidebar isSidebarOpen={sidebarOpen} />
-//         </div>
-//         <div className={`w-full flex flex-col `}>
-//           <div className="flex w-full px-10 bg-primary-900 justify-between top-0 left-0 right-0">
-//             <button onClick={toggleSidebar} className="text-white text-2xl">
-//               <FaBars />
-//             </button>
-//             <Header />
-//           </div>
-//           <div className=" overflow-auto  p-4">
-//             <div className="flex justify-between p-2 border-b">
-//               <h2 className="text-2xl font-bold mb-2">Restaurants Payouts</h2>
-//               <BreadCrumb breadcrumbs={breadcrumbs} />
-//             </div>
-//             <Outlet />
-//           </div>
-//         </div>
-//       </div>
-//     </>
-//   );
-// };
-
-// export default RootLayout;
-// import { Outlet } from "react-router-dom";
-
 import { useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import Header from "../components/Header";
 import SideBar from "../components/Header/SideBar";
 import MobileMenu from "../components/Header/MobileMenu";
 import { Outlet } from "react-router-dom";
-
+import Processing from "../components/Processing/Processing";
+import useLoading from "../components/Processing/useLoading";
 const RootLayout = () => {
   const [sidebarOpen, setSidebarOpen] = useState(true);
 
+  const loading = useLoading();
   const toggleSidebar = () => {
     setSidebarOpen(!sidebarOpen);
   };
@@ -95,8 +49,7 @@ const RootLayout = () => {
               sidebarOpen ? "ml-0 md:mx-10 lg:ml-60 pt-5" : "ml-0 md:ml-16"
             }`}
           >
-            {" "}
-            <Outlet />
+            {loading && <Processing />} <Outlet />
           </div>
         </div>
       </div>

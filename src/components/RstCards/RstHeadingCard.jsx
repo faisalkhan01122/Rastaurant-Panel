@@ -1,12 +1,13 @@
 import React from "react";
 import { IoMenuSharp } from "react-icons/io5";
+import { Link } from "react-router-dom";
 
-const RstHeadingCard = ({ title, icon }) => {
+const RstHeadingCard = ({ title, icon, link }) => {
   return (
     <div className="border border-b border-gray-200">
       <div className=" flex items-center  justify-between bg-[#F7F7F7] px-6  py-3">
         <h1 className="text-xl font-semibold">{title}</h1>
-        <button> {icon}</button>
+        <Link to={link}> {icon}</Link>
       </div>
       <div className="px-4 py-4">
         <div className="flex flex-col lg:flex-row md:flex-row lg:items-center md:justify-between gap-2">

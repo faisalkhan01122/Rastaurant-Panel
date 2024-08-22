@@ -116,8 +116,8 @@ const RstDashBoard = () => {
           ))}
         </div>
       </div>
-      <RstStatisticGraph />
-      <RstRecentOrder />
+      {/* <RstStatisticGraph /> */}
+      {/* <RstRecentOrder /> */}
     </div>
   );
 };
