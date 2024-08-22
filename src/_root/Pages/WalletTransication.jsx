@@ -357,36 +357,44 @@ const WalletTransecation = () => {
               </tr>
             </thead>
             <tbody className="bg-white divide-y divide-gray-200 scrollbar-custom">
-              {Orders.map((order, index) => (
-                <React.Fragment key={index}>
-                  <tr className="border-b border-gray-300 ">
-                    <td className="px-4 py-2 text-primary-900 hover:text-black  md:table-cell lg:table-cell truncate">
-                      {order.orderid}
-                    </td>
-                    <td className="px-4 py-2 text-primary-900 hover:text-black  md:table-cell lg:table-cell truncate">
-                      {order.client}
-                    </td>
-                    <td className="px-4 py-2 text-primary-900 hover:text-black  md:table-cell lg:table-cell truncate">
-                      {order.ordertype}
-                    </td>
-                    <td className="px-4 py-2 text-primary-900 hover:text-black  md:table-cell lg:table-cell truncate">
-                      {order.totalamount}
-                      <td className="text-gray-400 text-sm ">
-                        No Record Found{" "}
+              {Orders.length === 0 ? (
+                <tr>
+                  <td className="px-4 py-2 text-center">
+                    <h1>No Record Found</h1>
+                  </td>
+                </tr>
+              ) : (
+                Orders.map((order, index) => (
+                  <React.Fragment key={index}>
+                    <tr className="border-b border-gray-300 ">
+                      <td className="px-4 py-2 text-primary-900 hover:text-black  md:table-cell lg:table-cell truncate">
+                        {order.orderid}
                       </td>
-                    </td>
-                    <td className="px-4 py-2 text-primary-900 hover:text-black  md:table-cell lg:table-cell truncate">
-                      {order.quantity}
-                    </td>
-                    <td className="px-4 py-2 text-primary-900 hover:text-black  md:table-cell lg:table-cell truncate">
-                      {order.orderdate}
-                    </td>
-                    <td className="px-4 py-2 text-primary-900 hover:text-black  md:table-cell lg:table-cell truncate">
-                      {order.orderstatus}
-                    </td>
-                  </tr>
-                </React.Fragment>
-              ))}
+                      <td className="px-4 py-2 text-primary-900 hover:text-black  md:table-cell lg:table-cell truncate">
+                        {order.client}
+                      </td>
+                      <td className="px-4 py-2 text-primary-900 hover:text-black  md:table-cell lg:table-cell truncate">
+                        {order.ordertype}
+                      </td>
+                      <td className="px-4 py-2 text-primary-900 hover:text-black  md:table-cell lg:table-cell truncate">
+                        {order.totalamount}
+                        <td className="text-gray-400 text-sm ">
+                          No Record Found{" "}
+                        </td>
+                      </td>
+                      <td className="px-4 py-2 text-primary-900 hover:text-black  md:table-cell lg:table-cell truncate">
+                        {order.quantity}
+                      </td>
+                      <td className="px-4 py-2 text-primary-900 hover:text-black  md:table-cell lg:table-cell truncate">
+                        {order.orderdate}
+                      </td>
+                      <td className="px-4 py-2 text-primary-900 hover:text-black  md:table-cell lg:table-cell truncate">
+                        {order.orderstatus}
+                      </td>
+                    </tr>
+                  </React.Fragment>
+                ))
+              )}
             </tbody>
           </table>
         </div>

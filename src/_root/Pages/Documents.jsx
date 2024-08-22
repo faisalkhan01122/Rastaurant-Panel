@@ -103,7 +103,7 @@ const Documents = () => {
           <HeadingCard />
           <table className="min-w-full bg-white">
             <thead>
-              <tr>
+              <tr className="text-[.7rem] md:text-[.9rem]">
                 <th className="px-4 py-2 border text-left">
                   <button
                     onClick={() => handleSort("name")}
@@ -112,14 +112,14 @@ const Documents = () => {
                     <h1> Name </h1>
                     <div className="flex flex-col">
                       <TbTriangleFilled
-                        className={`transition-colors text-xs ${
+                        className={`transition-colors text-[.5rem] ${
                           sortColumn === "name" && sortDirection === "asc"
                             ? "text-gray-500"
                             : "text-gray-300"
                         }`}
                       />
                       <TbTriangleInvertedFilled
-                        className={`transition-colors text-xs ${
+                        className={`transition-colors text-[.5rem] ${
                           sortColumn === "name" && sortDirection === "desc"
                             ? "text-gray-500"
                             : "text-gray-300"

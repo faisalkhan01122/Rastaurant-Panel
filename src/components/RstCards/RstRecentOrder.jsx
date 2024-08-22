@@ -137,14 +137,14 @@ const RstRecentOrder = () => {
     <div className="bg-white shadow-md hover:shadow-lg rounded">
       <RstHeadingCard
         title="Recent Orders"
-        icon={<BiMenu />}
+        icon={<BiMenu className="text-2xl text-red1 font-semibold " />}
         link={"/orders"}
       />
 
       <div className="overflow-x-auto scrollbar-custom">
         <table className="min-w-full divide-y divide-gray-200">
           <thead>
-            <tr className="bg-gray-100 text-sm ">
+            <tr className="bg-gray-100 text-[.7rem] md:text-[.9rem] ">
               <th className="py-2 px-4  flex justify-center items-center   md:pt-3">
                 <button
                   onClick={() => handleSort("id")}

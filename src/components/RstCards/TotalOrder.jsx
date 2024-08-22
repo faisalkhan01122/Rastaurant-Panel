@@ -152,7 +152,7 @@ const TotalOrder = () => {
         <div className="overflow-x-auto scrollbar-custom">
           <table className="min-w-full bg-white">
             <thead>
-              <tr>
+              <tr className="text-[.6rem] md:text-[.9rem]">
                 <th className="px-4 py-2 border bg-[#F8FAFD]">
                   <div className="flex items-center justify-center gap-1 ">
                     <input
@@ -345,35 +345,43 @@ const TotalOrder = () => {
                 </th>
               </tr>
             </thead>
-            <tbody>
-              {displayedRoles.map((role, index) => (
-                <tr key={index} className="hover:bg-gray-200">
-                  <td className="px-4 py-2  w-10 text-center">
-                    {role.selectrole}
-                  </td>
-                  <td className="px-4 py-2  text-left text-gray-400 text-sm ">
-                    {role.orderid}
-                  </td>
-                  <td className="px-4 py-2  text-left text-gray-400 text-sm ">
-                    {role.client}
-                  </td>
-                  <td className="px-4 py-2  text-left text-gray-400 text-sm ">
-                    {role.amount}
-                    no Recoard
-                  </td>
-
-                  <td className="px-4 py-2  text-left text-gray-400 text-sm ">
-                    {role.ordertype}
-                  </td>
-                  <td className="px-4 py-2  text-left text-gray-400 text-sm ">
-                    {role.date}
-                  </td>
-
-                  <td className="px-4 py-2  text-left flex gap-2">
-                    {role.action}
+            <tbody className="bg-white divide-y divide-gray-200 scrollbar-custom">
+              {displayedRoles.length === 0 ? (
+                <tr>
+                  <td className="px-4 py-2 text-center">
+                    <h1>No Record Found</h1>
                   </td>
                 </tr>
-              ))}
+              ) : (
+                displayedRoles.map((role, index) => (
+                  <tr key={index} className="hover:bg-gray-200">
+                    <td className="px-4 py-2  w-10 text-center">
+                      {role.selectrole}
+                    </td>
+                    <td className="px-4 py-2  text-left text-gray-400 text-sm ">
+                      {role.orderid}
+                    </td>
+                    <td className="px-4 py-2  text-left text-gray-400 text-sm ">
+                      {role.client}
+                    </td>
+                    <td className="px-4 py-2  text-left text-gray-400 text-sm ">
+                      {role.amount}
+                      No Record Found
+                    </td>
+
+                    <td className="px-4 py-2  text-left text-gray-400 text-sm ">
+                      {role.ordertype}
+                    </td>
+                    <td className="px-4 py-2  text-left text-gray-400 text-sm ">
+                      {role.date}
+                    </td>
+
+                    <td className="px-4 py-2  text-left flex gap-2">
+                      {role.action}
+                    </td>
+                  </tr>
+                ))
+              )}
             </tbody>
           </table>
         </div>
