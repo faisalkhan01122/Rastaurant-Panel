@@ -134,7 +134,7 @@ const RstRecentOrder = () => {
   // };
 
   return (
-    <div className="bg-white shadow-md hover:shadow-lg rounded">
+    <div className="bg-white shadow-md hover:shadow-lg rounded-md">
       <RstHeadingCard
         title="Recent Orders"
         icon={<BiMenu className="text-2xl text-red1 font-semibold " />}

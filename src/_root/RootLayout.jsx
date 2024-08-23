@@ -29,8 +29,8 @@ const RootLayout = () => {
           <div
             className={`fixed flex px-10 bg-primary-900 justify-between top-0  ${
               sidebarOpen
-                ? "lg:left-[16.6%] md:left-0 sm:left-0 left-0"
-                : "lg:left-[4.1%] md:left-0 sm:left-0 left-0"
+                ? "lg:left-[17%] md:left-0 sm:left-0 left-0"
+                : "lg:left-[7.5%] md:left-0 sm:left-0 left-0"
             } right-0`}
           >
             <button
@@ -46,7 +46,9 @@ const RootLayout = () => {
           </div>
           <div
             className={`overflow-auto mt-16  ${
-              sidebarOpen ? "ml-0 md:mx-10 lg:ml-60 pt-5" : "ml-0 md:ml-16"
+              sidebarOpen
+                ? "ml-0 md:ml-10 lg:ml-60 pt-5"
+                : "ml-0 md:ml-24 md:mr-2"
             }`}
           >
             {loading && <Processing />} <Outlet />
